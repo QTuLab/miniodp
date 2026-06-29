@@ -17,13 +17,13 @@ Large, well-established model-organism communities often have mature genome reso
 miniODP addresses this need as a reusable framework rather than a fixed database for one species. A project can start with a genome reference, gene annotations, and bulk RNA-seq data, then add **genome-browser tracks**, **BLAST databases**, **single-cell modules**, and regulatory outputs such as **enhancer-like signatures** and **gene regulatory networks** when suitable data are available. The same codebase can support species with complete matched assays and species with only partial data.
 
 <p align="center">
-  <img src="common/images/overview_miniodp.png" alt="miniODP framework overview" width="800">
+  <img src="common/images/overview_miniodp.png" alt="miniODP framework overview" width="600">
 </p>
 
 miniODP is paired with the miniENCODE core assay design. miniENCODE uses **RNA-seq**, **ATAC-seq**, and **H3K27ac profiling** as a practical starting set for regulatory analysis when resources are limited. RNA-seq measures gene expression, ATAC-seq maps accessible chromatin, and H3K27ac marks active regulatory regions. Together, these three layers support **enhancer-like signature calling**, **enhancer-gene linkage**, and **gene regulatory network inference** when matched samples are available. Optional assays such as long-read RNA-seq, Micro-C, and single-cell assays can be added when the biological question requires higher resolution.
 
 <p align="center">
-  <img src="common/images/overview_miniencode.png" alt="miniENCODE core assay design" width="800">
+  <img src="common/images/overview_miniencode.png" alt="miniENCODE core assay design" width="600">
 </p>
 
 The repository supports two connected activities:
