@@ -2,6 +2,8 @@
 
 miniODP is an open-source framework for building lightweight multi-omics portals for understudied and community-scale model organisms. It provides a reusable **analysis pipeline**, a configurable **web portal**, species-level configuration files, gene-ID adapters, data-conversion scripts, Docker runtime files, and deployment documentation.
 
+The public miniODP instance maintained by QTu Lab is available at [https://tulab.genetics.ac.cn/miniodp/](https://tulab.genetics.ac.cn/miniodp/).
+
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -202,6 +204,6 @@ For now, please cite the repository and the release version you used:
 
 QTu Lab. miniODP: a reusable framework for building multi-omics resources in understudied organisms. GitHub repository, `https://github.com/QTuLab/miniodp`.
 
-This repository supersedes the legacy public miniENCODE repository as the main open-source home for the framework. The legacy repository remains available at `https://github.com/QTuLab/miniENCODE/`.
+This repository supersedes the legacy public miniENCODE repository as the main open-source home for the framework. The legacy repository remains available at [https://github.com/QTuLab/miniENCODE/](https://github.com/QTuLab/miniENCODE/).
 
 This repository is released under the MIT License.
