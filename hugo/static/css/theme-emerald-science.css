@@ -1,0 +1,49 @@
+/* Emerald Science Theme - Nature and Life Sciences */
+:root {
+    /* Primary Colors */
+    --primary-color: #059669;
+    --primary-dark: #047857;
+    --primary-light: #10b981;
+    --primary-50: rgba(5, 150, 105, 0.05);
+    --primary-100: rgba(5, 150, 105, 0.1);
+    --primary-200: rgba(5, 150, 105, 0.2);
+    --primary-300: rgba(5, 150, 105, 0.3);
+    --primary-500: rgba(5, 150, 105, 0.5);
+    --primary-750: rgba(5, 150, 105, 0.75);
+    
+    /* Secondary Colors */
+    --secondary-color: #6b7280;
+    --secondary-dark: #4b5563;
+    --secondary-light: #9ca3af;
+    
+    /* Accent Colors */
+    --success-color: #34d399;
+    --info-color: #14b8a6;
+    --warning-color: #fbbf24;
+    --danger-color: #f87171;
+    
+    /* Background Colors */
+    --light-bg: #f0fdf4;
+    --dark-bg: #1f2937;
+    --card-bg: #ffffff;
+    
+    /* Text Colors */
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+    --text-muted: #9ca3af;
+    --text-white: #ffffff;
+    
+    /* Border Colors */
+    --border-light: rgba(5, 150, 105, 0.05);
+    --border-medium: rgba(5, 150, 105, 0.1);
+    --border-strong: rgba(5, 150, 105, 0.2);
+    
+    /* Shadow Colors */
+    --shadow-sm: 0 4px 15px rgba(5, 150, 105, 0.1);
+    --shadow-md: 0 8px 30px rgba(5, 150, 105, 0.15);
+    --shadow-lg: 0 20px 40px rgba(5, 150, 105, 0.15);
+    
+    /* Gradient */
+    --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    --gradient-overlay: rgba(5, 150, 105, 0.75);
+}

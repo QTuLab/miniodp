@@ -1,0 +1,649 @@
+{{ define "main" }}
+<section class="help-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <!-- Header -->
+                <div class="text-center mb-5">
+                    <h1 class="display-4 fw-bold mb-3">Help & Documentation</h1>
+                    <p class="lead text-muted">Learn how to use the Mini Omics Data Portal tools effectively</p>
+                </div>
+
+                <!-- Quick Start Guide -->
+                <div class="help-card mb-5">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h2 class="h3 fw-bold mb-4">
+                                <i class="bi bi-rocket-takeoff text-primary me-2"></i>
+                                Quick Start Guide
+                            </h2>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h4 class="h5 fw-bold mb-3">Getting Started</h4>
+                                    <ol class="list-group list-group-flush">
+                                        <li class="list-group-item border-0 px-0">
+                                            <strong>1. Choose a Species:</strong> Select your organism of interest from the homepage
+                                        </li>
+                                        <li class="list-group-item border-0 px-0">
+                                            <strong>2. Select a Tool:</strong> Choose from Genome Browser, Gene Browser, or BLAST Search
+                                        </li>
+                                        <li class="list-group-item border-0 px-0">
+                                            <strong>3. Explore Data:</strong> Use the interactive tools to analyze your data
+                                        </li>
+                                    </ol>
+                                </div>
+                                <div class="col-md-6">
+                                    <h4 class="h5 fw-bold mb-3">Navigation Tips</h4>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item border-0 px-0">
+                                            <i class="bi bi-lightbulb text-warning me-2"></i>
+                                            Use the species statistics to understand data scope
+                                        </li>
+                                        <li class="list-group-item border-0 px-0">
+                                            <i class="bi bi-lightbulb text-warning me-2"></i>
+                                            Tab between tools without losing your work
+                                        </li>
+                                        <li class="list-group-item border-0 px-0">
+                                            <i class="bi bi-lightbulb text-warning me-2"></i>
+                                            Use "Open in New Tab" for detailed analysis
+                                        </li>
+                                        <li class="list-group-item border-0 px-0">
+                                            <i class="bi bi-lightbulb text-warning me-2"></i>
+                                            All tools can be opened in new windows for parallel work
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistics Glossary -->
+                <div class="help-card mb-5">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h2 class="h3 fw-bold mb-4">
+                                <i class="bi bi-bar-chart text-primary me-2"></i>
+                                Statistics Glossary
+                            </h2>
+                            <p class="text-muted mb-4">The homepage and species pages use the following definitions for portal summary statistics.</p>
+                            <div class="row">
+                                <div class="col-md-6 mb-4 mb-md-0">
+                                    <h4 class="h5 fw-bold mb-3">Bulk runs</h4>
+                                    <p class="mb-0">Number of public bulk omics sequencing runs currently included in the portal for this species. Each run usually corresponds to one SRA run accession, such as one <code>SRR</code> record. Multiple runs may be merged into one displayed sample group or genome-browser track.</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <h4 class="h5 fw-bold mb-3">Bulk bases</h4>
+                                    <p class="mb-0">Total sequenced bases across the included public bulk runs, based on formal public-source audits plus any documented internal run-level bases evidence when applicable.</p>
+                                </div>
+                                <div class="col-md-6 mt-4">
+                                    <h4 class="h5 fw-bold mb-3">SC sample groups</h4>
+                                    <p class="mb-0">Number of public single-cell sample groups currently included in the portal for this species. Each group corresponds to one public matrix displayed in Dash and can represent one or more source libraries or runs that were merged during curation.</p>
+                                </div>
+                                <div class="col-md-6 mt-4">
+                                    <h4 class="h5 fw-bold mb-3">Cells</h4>
+                                    <p class="mb-0">Total cells across the included public single-cell sample groups, based on the metadata packaged with each published matrix.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools Documentation -->
+                <div class="tools-documentation mb-5">
+                    <!-- JBrowse Documentation -->
+                    <div class="tool-section mb-4">
+                        <div class="tool-help-card h-100">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body p-4">
+                                    <div class="text-center mb-4">
+                                        <i class="bi bi-bar-chart-steps text-primary" style="font-size: 3rem;"></i>
+                                        <h3 class="h4 fw-bold mt-3">Genome Browser</h3>
+                                        <h5 class="fw-bold mb-3 text-muted">JBrowse 2</h5>
+                                        <p class="text-muted">Interactive visualization of genomic features, annotations, and sequencing data.</p>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h6 class="fw-bold mb-3">Key Features:</h6>
+                                            <ul class="list-unstyled mb-4">
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Genome navigation</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Track visualization</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Feature search</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Data export</li>
+                                            </ul>
+                                            
+                                            <h6 class="fw-bold mb-3">Default Tracks:</h6>
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Ensembl gene models</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>RNA-seq coverage</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>ATAC-seq coverage</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>ChIP-seq coverage</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6 class="fw-bold mb-3">Usage Tips:</h6>
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Use track selector to search by categories, samples, or technologies</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Click track names to change display settings and colors</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Search genes by name, ID, or genomic coordinates</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Use 'Share' button to get links for current view</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Open in new tab for detailed analysis</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dashboard Documentation -->
+                    <div class="tool-section mb-4">
+                        <div class="tool-help-card h-100">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body p-4">
+                                    <div class="text-center mb-4">
+                                        <i class="bi bi-graph-up text-success" style="font-size: 3rem;"></i>
+                                        <h3 class="h4 fw-bold mt-3">Gene Browser</h3>
+                                        <h5 class="fw-bold mb-3 text-muted">Dash</h5>
+                                        <p class="text-muted">Interactive gene expression analysis and multi-omics data exploration. Search genes using the sidebar, then explore different data types through the tabs below.</p>
+                                    </div>
+
+                                    <!-- Gene Info Tab -->
+                                    <div class="tab-doc-section mb-4 p-3 border rounded">
+                                        <h5 class="fw-bold mb-3"><i class="bi bi-info-circle text-primary me-2"></i>Gene Info</h5>
+                                        <p>Comprehensive gene annotation and metadata. View basic information including gene ID, name, description, genomic location, and sequence. Explore functional annotations from GO (Gene Ontology) and InterPro domains. For transcription factors, view family classification with links to AnimalTFDB. Find orthologous genes across different species with direct links to their pages.</p>
+                                        <div class="row mt-3">
+                                            <div class="col-md-6">
+                                                <ul class="list-unstyled mb-0">
+                                                    <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Gene sequences (DNA, CDS, protein)</li>
+                                                    <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>GO terms (BP, MF, CC)</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <ul class="list-unstyled mb-0">
+                                                    <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>InterPro domain annotations</li>
+                                                    <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Cross-species orthologs</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- BulkRNA Tab -->
+                                    <div class="tab-doc-section mb-4 p-3 border rounded">
+                                        <h5 class="fw-bold mb-3"><i class="bi bi-grid-3x3 text-danger me-2"></i>BulkRNA</h5>
+                                        <p>Visualize bulk RNA-seq expression data across multiple studies and conditions. Select from available studies, each containing multiple samples organized by tissue, developmental stage, or experimental condition. Expression values can be displayed as raw TPM, log-transformed, or z-score normalized for cross-gene comparison.</p>
+                                        <div class="row mt-3">
+                                            <div class="col-md-6">
+                                                <ul class="list-unstyled mb-0">
+                                                    <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Interactive heatmap visualization</li>
+                                                    <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Multiple studies selection</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <ul class="list-unstyled mb-0">
+                                                    <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>TPM / Log2 / Z-score transforms</li>
+                                                    <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Export expression matrix as CSV</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- scRNA Tab -->
+                                    <div class="tab-doc-section mb-4 p-3 border rounded">
+                                        <h5 class="fw-bold mb-3"><i class="bi bi-scatter-chart text-info me-2"></i>scRNA</h5>
+                                        <p>Explore single-cell RNA-seq data with dimensionality reduction visualizations. View gene expression patterns on UMAP/tSNE embeddings, with cells colored by expression level. Use violin plots to compare expression distributions across cell clusters. Adjust the expression threshold to filter out low-signal noise and highlight cells with significant expression.</p>
+                                        <div class="row mt-3">
+                                            <div class="col-md-6">
+                                                <ul class="list-unstyled mb-0">
+                                                    <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>UMAP/tSNE feature plots</li>
+                                                    <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Cluster-based violin plots</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <ul class="list-unstyled mb-0">
+                                                    <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Expression threshold filtering</li>
+                                                    <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Multiple colorscale options</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- scATAC Tab -->
+                                    <div class="tab-doc-section mb-4 p-3 border rounded">
+                                        <h5 class="fw-bold mb-3"><i class="bi bi-reception-4 text-warning me-2"></i>scATAC</h5>
+                                        <p>Visualize single-cell chromatin accessibility data. For each gene, view accessibility of associated regulatory peaks on UMAP embeddings. This helps identify cell populations with open chromatin at gene regulatory regions, complementing expression data from scRNA-seq.</p>
+                                        <div class="row mt-3">
+                                            <div class="col-md-6">
+                                                <ul class="list-unstyled mb-0">
+                                                    <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Peak accessibility on UMAP</li>
+                                                    <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Gene-associated peak search</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <ul class="list-unstyled mb-0">
+                                                    <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Accessibility threshold filtering</li>
+                                                    <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Cluster statistics view</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- BulkMulti Tab -->
+                                    <div class="tab-doc-section mb-4 p-3 border rounded">
+                                        <h5 class="fw-bold mb-3"><i class="bi bi-diagram-3 text-purple me-2"></i>BulkMulti</h5>
+                                        <p>Integrated multi-omics analysis combining bulk RNA-seq with ATAC-seq data. Explore peak-to-gene linkages that connect regulatory elements to their target genes. View correlation scores between chromatin accessibility and gene expression across samples.</p>
+                                        <div class="row mt-3">
+                                            <div class="col-md-6">
+                                                <ul class="list-unstyled mb-0">
+                                                    <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Peak-gene linkage visualization</li>
+                                                    <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Correlation analysis</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <ul class="list-unstyled mb-0">
+                                                    <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Multi-omics data integration</li>
+                                                    <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Regulatory region analysis</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Landscape Tab -->
+                                    <div class="tab-doc-section mb-4 p-3 border rounded">
+                                        <h5 class="fw-bold mb-3"><i class="bi bi-map text-success me-2"></i>Landscape</h5>
+                                        <p>Genomic landscape view showing gene structure, expression profiles, and regulatory connections in genomic context. Visualize how genes relate to nearby regulatory elements and compare expression patterns across the selected genomic region.</p>
+                                        <div class="row mt-3">
+                                            <div class="col-md-6">
+                                                <ul class="list-unstyled mb-0">
+                                                    <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Genomic region visualization</li>
+                                                    <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Gene structure display</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <ul class="list-unstyled mb-0">
+                                                    <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Expression profile tracks</li>
+                                                    <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Peak-gene linkage arcs</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- External Links -->
+                                    <div class="tab-doc-section p-3 border rounded bg-light">
+                                        <h5 class="fw-bold mb-3"><i class="bi bi-box-arrow-up-right text-secondary me-2"></i>External Links</h5>
+                                        <p class="mb-2">Gene Browser provides direct links to external databases for additional information:</p>
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-2"><i class="bi bi-link-45deg text-primary me-2"></i><strong>JBrowse:</strong> View gene in genomic context with all available tracks</li>
+                                            <li class="mb-2"><i class="bi bi-link-45deg text-primary me-2"></i><strong>Ensembl:</strong> Access detailed gene information from Ensembl database</li>
+                                            <li class="mb-2"><i class="bi bi-link-45deg text-primary me-2"></i><strong>AnimalTFDB:</strong> Transcription factor family and binding site information</li>
+                                            <li class="mb-2"><i class="bi bi-link-45deg text-primary me-2"></i><strong>InterPro:</strong> Protein domain and family classification</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BLAST Documentation -->
+                    <div class="tool-section mb-4">
+                        <div class="tool-help-card h-100">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body p-4">
+                                    <div class="text-center mb-4">
+                                        <i class="bi bi-search text-info" style="font-size: 3rem;"></i>
+                                        <h3 class="h4 fw-bold mt-3">BLAST Search</h3>
+                                        <h5 class="fw-bold mb-3 text-muted">SequenceServer</h5>
+                                        <p class="text-muted">Find similar sequences in species-specific databases.</p>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h6 class="fw-bold mb-3">Key Features:</h6>
+                                            <ul class="list-unstyled mb-4">
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Multiple BLAST programs</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Sequence alignment</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>E-value filtering</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Results download</li>
+                                            </ul>
+                                            
+                                            <h6 class="fw-bold mb-3">Available Databases:</h6>
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Genome sequences</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Ensembl cDNA</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Reference proteomes</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6 class="fw-bold mb-3">Results Features:</h6>
+                                            <ul class="list-unstyled mb-4">
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Detailed reports and diagrams</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>FASTA sequences download</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>JBrowse links for genome hits</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Shareable result IDs</li>
+                                            </ul>
+                                            
+                                            <h6 class="fw-bold mb-3">Usage Tips:</h6>
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Choose appropriate BLAST program</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Adjust E-value threshold as needed</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Use genome database for context</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Save result IDs for sharing</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Information -->
+                <div class="data-info-section">
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-body p-4">
+                            <h2 class="h3 fw-bold mb-4">
+                                <i class="bi bi-database text-primary me-2"></i>
+                                Data Information
+                            </h2>
+                            
+                            <!-- Data Types Section -->
+                            <div class="mb-5">
+                                <h4 class="h5 fw-bold mb-4">Available Data Types</h4>
+                                <div class="row">
+                                    <!-- First Row -->
+                                    <div class="col-md-6">
+                                        <div class="data-type-card p-3 border rounded mb-3">
+                                            <h6 class="fw-bold mb-3">
+                                                <i class="bi bi-diagram-2 text-info me-2"></i>
+                                                Genome and Gene Annotations
+                                            </h6>
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Gene models and features</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Functional annotations</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>GO and InterPro domains</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="data-type-card p-3 border rounded mb-3">
+                                            <h6 class="fw-bold mb-3">
+                                                <i class="bi bi-search text-warning me-2"></i>
+                                                BLAST Databases
+                                            </h6>
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Genome sequences</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>cDNA sequences</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Protein sequences</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- Second Row -->
+                                    <div class="col-md-6">
+                                        <div class="data-type-card p-3 border rounded mb-3">
+                                            <h6 class="fw-bold mb-3">
+                                                <i class="bi bi-file-earmark-text text-primary me-2"></i>
+                                                Bulk Omics Data
+                                            </h6>
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Bulk RNA-seq</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Bulk ATAC-seq</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>ChIP-seq</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="data-type-card p-3 border rounded mb-3">
+                                            <h6 class="fw-bold mb-3">
+                                                <i class="bi bi-circle-fill text-success me-2" style="font-size: 0.8rem;"></i>
+                                                Single-cell Omics Data
+                                            </h6>
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Single-cell RNA-seq</li>
+                                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Single-cell ATAC-seq</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Available Species Section -->
+                            <div>
+                                <h4 class="h5 fw-bold mb-4">Available Species</h4>
+                                <div class="row">
+                                    {{ range partial "sorted-species.html" . }}
+                                    {{ $key := .key }}
+                                    {{ $species := .data }}
+                                    {{ $imageSrc := printf "images/%s" $species.image | relURL }}
+                                    {{ if or (hasPrefix $species.image "http://") (hasPrefix $species.image "https://") }}
+                                        {{ $imageSrc = $species.image }}
+                                    {{ end }}
+                                    <div class="col-md-6 col-lg-4">
+                                        <div class="species-info-item mb-3">
+                                            <div class="d-flex align-items-center">
+                                                <img src="{{ $imageSrc }}" alt="{{ $species.name }}" class="species-thumb me-3">
+                                                <div>
+                                                    <h6 class="fw-bold mb-1">{{ $species.name }}</h6>
+                                                    <p class="text-muted small mb-0"><em>{{ $species.scientific_name }}</em></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{ end }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div class="faq-section mt-5">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h2 class="h3 fw-bold mb-4">
+                                <i class="bi bi-question-circle text-primary me-2"></i>
+                                Frequently Asked Questions
+                            </h2>
+                            <div class="accordion" id="faqAccordion">
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="faq1">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1">
+                                            How do I cite this portal?
+                                        </button>
+                                    </h3>
+                                    <div id="faqCollapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body">
+                                            {{ .Site.Params.citation_text }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="faq2">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2">
+                                            What file formats are supported?
+                                        </button>
+                                    </h3>
+                                    <div id="faqCollapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body">
+                                            We support standard bioinformatics formats including FASTA, FASTQ, GFF3, GTF, BAM, and various expression matrix formats. Data can be visualized directly in the browser or downloaded for offline analysis.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="faq3">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3">
+                                            How often is the data updated?
+                                        </button>
+                                    </h3>
+                                    <div id="faqCollapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body">
+                                            Data is updated regularly as new datasets become available. Major updates are announced on our homepage. For the most current data version information, please check the individual species pages.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header" id="faq4">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse4">
+                                            Can I download the data?
+                                        </button>
+                                    </h3>
+                                    <div id="faqCollapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                        <div class="accordion-body">
+                                            Yes, most data can be downloaded directly from the visualization tools. Gene Browser supports exporting expression matrices as CSV files. Look for download or export options in Genome Browser, Gene Browser, and BLAST Search results pages.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-section mt-5">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4 text-center">
+                            <h2 class="h3 fw-bold mb-3">
+                                <i class="bi bi-envelope text-primary me-2"></i>
+                                Need Help?
+                            </h2>
+                            <p class="text-muted mb-4">If you have questions about the portal or our datasets, please visit the Tu Lab homepage.</p>
+                            <div class="row justify-content-center">
+                                <div class="col-md-8">
+                                    <div class="contact-info">
+                                        {{ $contactName := .Site.Params.contact_name }}
+                                        {{ with .Site.Params.contact_url }}
+                                        <p class="mb-2"><strong><a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="text-decoration-none">{{ $contactName }}</a></strong></p>
+                                        {{ else }}
+                                        <p class="mb-2"><strong>{{ $contactName }}</strong></p>
+                                        {{ end }}
+                                        {{ with .Site.Params.contact_affiliation_line1 }}
+                                        <p class="text-muted mb-2">{{ . }}</p>
+                                        {{ end }}
+                                        {{ with .Site.Params.contact_affiliation_line2 }}
+                                        <p class="text-muted mb-0">{{ . }}</p>
+                                        {{ end }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}
+
+{{ define "head" }}
+<style>
+.species-thumb {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #e9ecef;
+}
+
+.help-card .card {
+    border-radius: 15px;
+}
+
+.tool-help-card .card {
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.tool-help-card .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+.accordion-button {
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: rgba(37, 99, 235, 0.1);
+    border-color: rgba(37, 99, 235, 0.2);
+}
+
+.accordion-item {
+    border: none;
+    margin-bottom: 0.5rem;
+}
+
+.accordion-item .accordion-header {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.species-info-item {
+    padding: 0.75rem;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.02);
+    transition: all 0.3s ease;
+}
+
+.species-info-item:hover {
+    background: rgba(37, 99, 235, 0.05);
+}
+
+.data-type-card {
+    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.data-type-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    background: rgba(37, 99, 235, 0.03);
+}
+
+@media (max-width: 768px) {
+    .tool-help-card .card {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Larger font size for help section */
+.help-section {
+    font-size: 1.05rem;
+}
+
+.help-section p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.help-section li {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Tab documentation sections */
+.tab-doc-section {
+    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, 0.01);
+}
+
+.tab-doc-section:hover {
+    background: rgba(37, 99, 235, 0.02);
+    border-color: rgba(37, 99, 235, 0.2) !important;
+}
+
+.tab-doc-section h5 {
+    font-size: 1.15rem;
+}
+
+.tab-doc-section p {
+    color: #495057;
+}
+
+/* Custom purple color for BulkMulti icon */
+.text-purple {
+    color: #7c3aed !important;
+}
+</style>
+{{ end }}

@@ -1,0 +1,8 @@
+species_key,file_name,database_title,assembly,annotation_tracks,refname_strip_prefixes,enabled
+cattle,Bos_taurus.ARS-UCD1.3.dna_rm.toplevel.fa,"Cattle Genome, ARS-UCD1.3",Bos_taurus,Bt_Ensembl.gff3,Bos_taurus-,true
+hydra,Hydra_vulgaris_105_v3.dna_rm.toplevel.fa,"Hydra Genome, v3",Hydra_vulgaris,Hv_Ensembl.gff3,"Hydra_vulgaris_105_v3-,Hydra_vulgaris-",true
+lancelet,Branchiostoma_lanceolatum.BraLan2.dna_rm.toplevel.fa,"Lancelet Genome, BraLan2",Branchiostoma_lanceolatum,Bl_Ensembl.gff3,Branchiostoma_lanceolatum-,true
+medaka,medaka_ens94plus.fa,"Medaka Genome, Ensembl 94",Oryzias_latipes,"Ol_Ensembl94.gff3,IGDB_2020GR.gff3","medaka_ens94plus-,Oryzias_latipes-,medaka-",true
+mexican_tetra,Astyanax_mexicanus-2.0.dna_rm.toplevel.fa,"Mexican tetra Genome, 2.0",Astyanax_mexicanus,Am_Ensembl.gff3,"Astyanax_mexicanus-2.0-,Astyanax_mexicanus-",true
+zebrafish,Danio_rerio.GRCz11.dna_rm.primary_assembly.fa,"Zebrafish Genome, GRCz11",Danio_rerio,Dr_Ensembl100.gff3,Danio_rerio-,true
+killifish,Nothobranchius_furzeri.NfurGRZ-RIMD1.genome.fa,"Turquoise killifish Genome, NfurGRZ-RIMD1",Nothobranchius_furzeri,Nf_RefSeq.gff3,Nothobranchius_furzeri-,true

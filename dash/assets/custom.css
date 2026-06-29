@@ -1,0 +1,150 @@
+/* assets/custom.css */
+
+/* Style for the main tabs */
+.custom-tabs {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.custom-tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+.custom-tab-selected {
+    color: #0d6efd; /* Bootstrap primary color */
+    border-bottom: 3px solid #0d6efd;
+    font-weight: bold;
+}
+
+/* Style for fixed-width gene badges with truncation */
+.badge .gene-badge-fixed-width {
+    max-width: 220px; /* Adjust this width as needed */
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle; /* Aligns badge nicely with the close button */
+    direction: ltr; /* Ensures ellipsis appears correctly */
+    text-align: left;
+}
+
+/* Beautiful Markdown styling */
+.markdown-container {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.markdown-container h1, .markdown-container h2, .markdown-container h3 {
+    color: #2c3e50;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+}
+
+.markdown-container h1 {
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.3em;
+}
+
+.markdown-container h2 {
+    border-bottom: 1px solid #bdc3c7;
+    padding-bottom: 0.2em;
+}
+
+.markdown-container h3 {
+    color: #34495e;
+}
+
+.markdown-container p {
+    margin-bottom: 1em;
+    text-align: justify;
+}
+
+.markdown-container ul, .markdown-container ol {
+    margin: 1em 0;
+    padding-left: 2em;
+}
+
+.markdown-container li {
+    margin-bottom: 0.5em;
+}
+
+.markdown-container code {
+    background-color: #f8f9fa;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.9em;
+    color: #e74c3c;
+}
+
+.markdown-container pre {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 0.375rem;
+    padding: 1rem;
+    overflow-x: auto;
+    margin: 1em 0;
+}
+
+.markdown-container blockquote {
+    border-left: 4px solid #3498db;
+    margin: 1em 0;
+    padding-left: 1em;
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+/* TF Families specific styling */
+.tf-families-container {
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: #f8f9fa;
+    border-radius: 0.375rem;
+    padding: 1rem;
+}
+
+.tf-families-container h3 {
+    color: #495057;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    font-size: 1.1em;
+    font-weight: 600;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 0.25em;
+}
+
+.tf-families-container ul {
+    column-count: 2;
+    column-gap: 2em;
+    margin: 0.5em 0 1.5em 0;
+}
+
+.tf-families-container li {
+    margin-bottom: 0.25em;
+    break-inside: avoid;
+    font-family: "SFMono-Regular", Consolas, monospace;
+    font-size: 0.9em;
+}
+
+/* Info card styling */
+.info-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.warning-card {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}

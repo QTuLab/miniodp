@@ -1,0 +1,45 @@
+services:
+  dash:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: qtulab/miniodp-dash:latest
+    container_name: miniodp-dash
+    ports:
+      - "127.0.0.1:3939:3939"
+    volumes:
+      # Mount current directory code, image only provides runtime environment
+      - .:/app
+      # Mount data directory
+      - ./data:/app/data
+      # Mount log directory
+      - ./logs:/app/logs
+      # Sync host timezone
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    environment:
+      # Dash runtime basics
+      - PORT=3939
+      - DASH_HOST=0.0.0.0
+      - DASH_DEBUG=false
+      - DASH_PREFIX=/miniodp/dash
+      - DASH_DATA_PATH=/app/data
+      - DASH_LOG_LEVEL=DEBUG          # INFO / DEBUG
+      # Gunicorn
+      - GUNICORN_WORKERS=8            # worker processes
+      - GUNICORN_THREADS=4            # threads per worker
+      - GUNICORN_TIMEOUT=180          # request timeout (seconds)
+      - GUNICORN_MAX_REQUESTS=300     # recycle worker after N requests (0 disables)
+      - GUNICORN_MAX_REQUESTS_JITTER=50 # add jitter to spread restarts
+      - GUNICORN_ACCESS_LOG=/app/logs/dash-access.log
+      - GUNICORN_ERROR_LOG=/app/logs/dash-app.log
+      - GUNICORN_PID_FILE=/app/logs/gunicorn.pid
+      # Memory watchdog
+      - MEM_WATCHDOG_THRESHOLD_GB=52  # restart workers if memory above this (GB)
+      - MEM_WATCHDOG_INTERVAL_SEC=15  # check interval (seconds)
+      - MEM_WATCHDOG_TRIGGER_COUNT=3  # consecutive hits before restart
+      - MEM_WATCHDOG_COOLDOWN_SEC=300 # pause after restart (seconds)
+      # h5ad/MAGIC idle cleanup
+      - H5AD_IDLE_TTL_SEC=900         # idle Time To Live for cached h5ad/magic (seconds)
+      - H5AD_IDLE_SWEEP_SEC=60        # sweep interval for idle cleanup (seconds)
+    restart: unless-stopped

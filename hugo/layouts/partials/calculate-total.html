@@ -1,0 +1,16 @@
+{{ $total := 0 }}
+{{ $field := .field }}
+{{ $data := .data }}
+{{ $fallbackField := .fallback_field }}
+{{ range $key, $species := $data }}
+    {{ if $species.order }}
+        {{ $value := index $species $field }}
+        {{ if and (eq $value nil) $fallbackField }}
+            {{ $value = index $species $fallbackField }}
+        {{ end }}
+        {{ if ne $value nil }}
+            {{ $total = add $total $value }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+{{ return $total }}

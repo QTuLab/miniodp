@@ -1,0 +1,40 @@
+# BulkMulti Metadata Template
+#
+# This CSV file describes the samples to be converted to BulkMulti format.
+# Each row represents one sample with corresponding Pipeline output files.
+#
+# Required columns:
+# - sample_id: Sample identifier that matches Pipeline output file prefixes
+# - display_name: Display name for the sample in Landscape View
+# - color: Color code in hex format (e.g., #d62728)
+# - description: Detailed description of the sample
+#
+# File path inference (based on --pipeline-dir and sample_id):
+# - ANANSE network: {pipeline_dir}/data/GRN/{sample_id}/{sample_id}.network.txt
+# - ELS peaks: {pipeline_dir}/data/ELS/{sample_id}/ELS_{sample_id}.bed
+# - RNA TPM: {pipeline_dir}/data/GRN/input/tpm_{sample_id}.txt
+# - BigWig: {pipeline_dir}/alignment/{sample_id}.bw
+#
+# Optional columns (to override default paths):
+# - ananse_network: Full path to ANANSE network.txt file
+# - els_bed: Full path to ELS BED file
+# - tpm_file: Full path to RNA TPM file
+# - bigwig_file: Full path to BigWig file
+#
+# Naming conventions:
+# - sample_id: Must match Pipeline output file prefixes (case-sensitive)
+# - display_name: Brief descriptive name (e.g., "Blastula", "Heart", "Blood")
+# - color: Use distinct colors for different sample types
+#
+# Example color palette:
+# - Embryonic stages: light colors (#edf8b1, #c7e9b4, #7fcdbb)
+# - Adult tissues: darker colors (#d62728, #8b0000, #1f77b4)
+
+sample_id,display_name,color,description
+Blastula,Blastula,#edf8b1,Blastula stage embryo
+Gastrula,Gastrula,#c7e9b4,Gastrula stage embryo
+Segmentation,Segmentation,#7fcdbb,Segmentation stage embryo
+Heart,Heart,#d62728,Adult heart tissue
+Blood,Blood,#8b0000,Adult blood tissue
+Brain,Brain,#1f77b4,Adult brain tissue
+Liver,Liver,#ff7f0e,Adult liver tissue

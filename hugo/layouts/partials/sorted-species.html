@@ -1,0 +1,6 @@
+{{ $species := slice }}
+{{ range $key, $value := .Site.Data.species_display }}
+    {{ $species = $species | append (dict "key" $key "data" $value) }}
+{{ end }}
+{{ $sortedSpecies := sort $species "data.order" }}
+{{ return $sortedSpecies }}

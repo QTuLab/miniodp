@@ -1,0 +1,69 @@
+# Landscape View Configuration File
+# Configuration for multi-omics landscape view generation based on BulkMulti data
+
+[general]
+# Species settings
+species = "zebrafish"
+
+# Output settings
+output_dir = "."
+output_name = "landscape_view"
+formats = ["html"]  # Supported output formats: "html", "png"
+
+[target]
+# Target genes and region settings
+gene_names = ["hand2"]
+
+# Region extension settings (auto-calculated based on gene position)
+upstream_bp   =  80000    # Upstream extension distance from gene
+downstream_bp =  80000  # Downstream extension distance from gene
+
+[thresholds]
+# Linkage strength threshold
+value_threshold = 0.2
+
+[visualization]
+# ATAC track visualization settings
+atac_height_ratio = 0.15  # Maximum height ratio for ATAC signal display
+show_els_guide_lines = false  # Show dotted lines for ELS positions on ATAC track
+
+# Track height settings (pixels)
+atac_height =   60        # Height per ATAC track
+gene_height =  120        # Gene track height
+els_height =    15        # ELS regulatory element track height
+linkage_height = 300      # Linkage arc track height
+
+# Font settings
+font_family = "Arial"
+panel_title_size = 18   # Panel title font size
+track_label_size = 18   # Track label font size
+gene_label_size = 16    # Gene label font size
+
+# Sample order (optional, uses database order if empty)
+sample_order = []
+# Example: ["Blastula", "Gastrula", "Pharyngula", "Hatching", "Segmentation"]
+
+[export]
+# HTML export settings
+html_include_plotlyjs = true
+html_display_modebar = true
+html_div_id = "landscape-view-plot"
+
+# PNG export settings
+png_width = 1400
+png_height = 1000
+
+# PDF export settings (experimental)
+pdf_enabled = false
+pdf_width = 14
+pdf_height = 10
+
+[advanced]
+# Advanced settings
+max_linkages_display = 15  # Maximum number of linkages to display
+arc_height_factor = 12000  # Arc height calculation factor
+color_intensity_threshold = 0.7  # Color intensity threshold
+
+# Debug settings
+debug_mode = false
+verbose_logging = false

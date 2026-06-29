@@ -1,0 +1,101 @@
+<!-- SEO Meta Tags -->
+<meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta name="keywords" content="{{ if .Params.keywords }}{{ delimit .Params.keywords ", " }}{{ else }}omics, genomics, bioinformatics, data portal, {{ range $key, $species := .Site.Data.species_display }}{{ $species.name }}, {{ end }}multi-species{{ end }}">
+<meta name="author" content="{{ .Site.Params.author }}">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{{ .Permalink }}">
+
+<!-- Open Graph Meta Tags -->
+<meta property="og:title" content="{{ .Title }} - {{ .Site.Title }}">
+<meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:locale" content="en_US">
+{{ if .Params.image }}
+<meta property="og:image" content="{{ .Params.image | absURL }}">
+{{ else }}
+<meta property="og:image" content="{{ "images/title.png" | absURL }}">
+{{ end }}
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ .Title }} - {{ .Site.Title }}">
+<meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+{{ if .Params.image }}
+<meta name="twitter:image" content="{{ .Params.image | absURL }}">
+{{ else }}
+<meta name="twitter:image" content="{{ "images/title.png" | absURL }}">
+{{ end }}
+
+<!-- Structured Data -->
+{{ if .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{ .Site.Title }}",
+  "description": "{{ .Site.Params.description }}",
+  "url": "{{ .Site.BaseURL }}",
+  "author": {
+    "@type": "Organization",
+    "name": "{{ .Site.Params.author }}"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "{{ .Site.BaseURL }}search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+{{ end }}
+
+{{ if eq .Type "species" }}
+{{ $speciesKey := .File.BaseFileName }}
+{{ $species := index .Site.Data.species_display $speciesKey }}
+{{ $bulkBases := or $species.bulk_bases $species.reads }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "{{ $species.name }} ({{ $species.scientific_name }}) Omics Data",
+  "description": "{{ $species.description }}",
+  "url": "{{ .Permalink }}",
+  "keywords": ["{{ $species.name }}", "{{ $species.scientific_name }}", "omics", "genomics", "bioinformatics"],
+  "creator": {
+    "@type": "Organization",
+    "name": "{{ .Site.Params.author }}"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/html",
+      "contentUrl": "{{ $species.jbrowse_url }}"
+    }
+  ],
+  "measurementTechnique": ["RNA-seq", "Single-cell RNA-seq", "Genome sequencing"],
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Bulk sequencing runs",
+      "value": {{ $species.bulk_datasets }}
+    },
+    {
+      "@type": "PropertyValue", 
+      "name": "Single-cell datasets",
+      "value": {{ $species.single_cell_datasets }}
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Total bulk sequencing bases", 
+      "value": {{ $bulkBases }}
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Total cells analyzed",
+      "value": {{ $species.cells }}
+    }
+  ]
+}
+</script>
+{{ end }}

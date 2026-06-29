@@ -1,0 +1,14 @@
+services:
+  pipeline:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: qtulab/miniodp-pipeline:latest
+    container_name: miniodp-pipeline
+    working_dir: /work
+    volumes:
+      - ${PIPELINE_WORKDIR:-..}:/work
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    stdin_open: true
+    tty: true

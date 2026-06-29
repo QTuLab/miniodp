@@ -1,0 +1,49 @@
+/* Classic Blue Theme - Academic and Professional */
+:root {
+    /* Primary Colors */
+    --primary-color: #2563eb;
+    --primary-dark: #1d4ed8;
+    --primary-light: #3b82f6;
+    --primary-50: rgba(37, 99, 235, 0.05);
+    --primary-100: rgba(37, 99, 235, 0.1);
+    --primary-200: rgba(37, 99, 235, 0.2);
+    --primary-300: rgba(37, 99, 235, 0.3);
+    --primary-500: rgba(37, 99, 235, 0.5);
+    --primary-750: rgba(37, 99, 235, 0.75);
+    
+    /* Secondary Colors */
+    --secondary-color: #64748b;
+    --secondary-dark: #475569;
+    --secondary-light: #94a3b8;
+    
+    /* Accent Colors */
+    --success-color: #10b981;
+    --info-color: #06b6d4;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+    
+    /* Background Colors */
+    --light-bg: #f8fafc;
+    --dark-bg: #1e293b;
+    --card-bg: #ffffff;
+    
+    /* Text Colors */
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --text-muted: #94a3b8;
+    --text-white: #ffffff;
+    
+    /* Border Colors */
+    --border-light: rgba(0, 0, 0, 0.05);
+    --border-medium: rgba(0, 0, 0, 0.1);
+    --border-strong: rgba(0, 0, 0, 0.2);
+    
+    /* Shadow Colors */
+    --shadow-sm: 0 4px 15px rgba(37, 99, 235, 0.1);
+    --shadow-md: 0 8px 30px rgba(37, 99, 235, 0.15);
+    --shadow-lg: 0 20px 40px rgba(37, 99, 235, 0.15);
+    
+    /* Gradient */
+    --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    --gradient-overlay: rgba(37, 99, 235, 0.75);
+}

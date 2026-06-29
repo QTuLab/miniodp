@@ -1,0 +1,49 @@
+/* Cool Gray Theme - Modern and Minimalist */
+:root {
+    /* Primary Colors */
+    --primary-color: #475569;
+    --primary-dark: #334155;
+    --primary-light: #64748b;
+    --primary-50: rgba(71, 85, 105, 0.05);
+    --primary-100: rgba(71, 85, 105, 0.1);
+    --primary-200: rgba(71, 85, 105, 0.2);
+    --primary-300: rgba(71, 85, 105, 0.3);
+    --primary-500: rgba(71, 85, 105, 0.5);
+    --primary-750: rgba(71, 85, 105, 0.75);
+    
+    /* Secondary Colors */
+    --secondary-color: #94a3b8;
+    --secondary-dark: #64748b;
+    --secondary-light: #cbd5e1;
+    
+    /* Accent Colors */
+    --success-color: #059669;
+    --info-color: #0284c7;
+    --warning-color: #d97706;
+    --danger-color: #dc2626;
+    
+    /* Background Colors */
+    --light-bg: #f8fafc;
+    --dark-bg: #0f172a;
+    --card-bg: #ffffff;
+    
+    /* Text Colors */
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+    --text-white: #ffffff;
+    
+    /* Border Colors */
+    --border-light: rgba(71, 85, 105, 0.05);
+    --border-medium: rgba(71, 85, 105, 0.1);
+    --border-strong: rgba(71, 85, 105, 0.2);
+    
+    /* Shadow Colors */
+    --shadow-sm: 0 4px 15px rgba(71, 85, 105, 0.1);
+    --shadow-md: 0 8px 30px rgba(71, 85, 105, 0.15);
+    --shadow-lg: 0 20px 40px rgba(71, 85, 105, 0.15);
+    
+    /* Gradient */
+    --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    --gradient-overlay: rgba(71, 85, 105, 0.75);
+}

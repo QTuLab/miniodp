@@ -1,0 +1,23 @@
+species_key,data_role,file_name,database_title,taxid,dbtype,source_kind,source,parse_seqids
+cattle,genome,Bos_taurus.ARS-UCD1.3.dna_rm.toplevel.fa,"Cattle Genome, ARS-UCD1.3",9903,nucl,,,true
+cattle,cdna,Bos_taurus.ARS-UCD2.0.cdna.all.fa,"Cattle cDNA, Ensembl 115 (ARS-UCD2.0)",9903,nucl,url,https://ftp.ensembl.org/pub/current_fasta/bos_taurus/cdna/Bos_taurus.ARS-UCD2.0.cdna.all.fa.gz,true
+cattle,protein,Bos_taurus.ARS-UCD2.0.pep.all.fa,"Cattle Proteome, Ensembl 115 (ARS-UCD2.0)",9903,prot,url,https://ftp.ensembl.org/pub/current_fasta/bos_taurus/pep/Bos_taurus.ARS-UCD2.0.pep.all.fa.gz,true
+hydra,genome,Hydra_vulgaris_105_v3.dna_rm.toplevel.fa,"Hydra Genome, v3",6083,nucl,,,true
+hydra,cdna,Hydra_vulgaris_gca022113875v1rs.Hydra_105_v3.cdna.all.fa,"Hydra cDNA, Ensembl Metazoa 115 (Hydra_105_v3)",6083,nucl,url,https://ftp.ensemblgenomes.ebi.ac.uk/pub/current/metazoa/fasta/hydra_vulgaris_gca022113875v1rs/cdna/Hydra_vulgaris_gca022113875v1rs.Hydra_105_v3.cdna.all.fa.gz,true
+hydra,protein,Hydra_vulgaris_gca022113875v1rs.Hydra_105_v3.pep.all.fa,"Hydra Proteome, Ensembl Metazoa 115 (Hydra_105_v3)",6083,prot,url,https://ftp.ensemblgenomes.ebi.ac.uk/pub/current/metazoa/fasta/hydra_vulgaris_gca022113875v1rs/pep/Hydra_vulgaris_gca022113875v1rs.Hydra_105_v3.pep.all.fa.gz,true
+lancelet,genome,Branchiostoma_lanceolatum.BraLan2.dna_rm.toplevel.fa,"Lancelet Genome, BraLan2",7740,nucl,,,true
+lancelet,cdna,Branchiostoma_lanceolatum.BraLan2.cdna.all.fa,"Lancelet cDNA, Ensembl Metazoa 115 (BraLan2)",7740,nucl,url,https://ftp.ensemblgenomes.ebi.ac.uk/pub/current/metazoa/fasta/branchiostoma_lanceolatum/cdna/Branchiostoma_lanceolatum.BraLan2.cdna.all.fa.gz,true
+lancelet,protein,Branchiostoma_lanceolatum.BraLan2.pep.all.fa,"Lancelet Proteome, Ensembl Metazoa 115 (BraLan2)",7740,prot,url,https://ftp.ensemblgenomes.ebi.ac.uk/pub/current/metazoa/fasta/branchiostoma_lanceolatum/pep/Branchiostoma_lanceolatum.BraLan2.pep.all.fa.gz,true
+medaka,genome,medaka_ens94plus.fa,"Medaka Genome, Ensembl 94",8090,nucl,,,true
+medaka,cdna,Oryzias_latipes.ASM223467v1.cdna.all.fa,"Medaka cDNA, Ensembl 115 (ASM223467v1)",8090,nucl,url,https://ftp.ensembl.org/pub/current_fasta/oryzias_latipes/cdna/Oryzias_latipes.ASM223467v1.cdna.all.fa.gz,true
+medaka,cdna,medaka_igdb_mRNA.fa,"Medaka cDNA, IGDB",8090,nucl,,,true
+medaka,protein,Oryzias_latipes.ASM223467v1.pep.all.fa,"Medaka Proteome, Ensembl 115 (ASM223467v1)",8090,prot,url,https://ftp.ensembl.org/pub/current_fasta/oryzias_latipes/pep/Oryzias_latipes.ASM223467v1.pep.all.fa.gz,true
+mexican_tetra,genome,Astyanax_mexicanus-2.0.dna_rm.toplevel.fa,"Mexican tetra Genome, 2.0",7994,nucl,,,true
+mexican_tetra,cdna,Astyanax_mexicanus.Astyanax_mexicanus-2.0.cdna.all.fa,"Mexican tetra cDNA, Ensembl 115 (Astyanax_mexicanus-2.0)",7994,nucl,url,https://ftp.ensembl.org/pub/current_fasta/astyanax_mexicanus/cdna/Astyanax_mexicanus.Astyanax_mexicanus-2.0.cdna.all.fa.gz,true
+mexican_tetra,protein,Astyanax_mexicanus.Astyanax_mexicanus-2.0.pep.all.fa,"Mexican tetra Proteome, Ensembl 115 (Astyanax_mexicanus-2.0)",7994,prot,url,https://ftp.ensembl.org/pub/current_fasta/astyanax_mexicanus/pep/Astyanax_mexicanus.Astyanax_mexicanus-2.0.pep.all.fa.gz,true
+zebrafish,genome,Danio_rerio.GRCz11.dna_rm.primary_assembly.fa,"Zebrafish Genome, GRCz11",7955,nucl,,,true
+zebrafish,cdna,Danio_rerio.GRCz11.cdna.all.fa,"Zebrafish cDNA, Ensembl 115 (GRCz11)",7955,nucl,url,https://ftp.ensembl.org/pub/current_fasta/danio_rerio/cdna/Danio_rerio.GRCz11.cdna.all.fa.gz,true
+zebrafish,protein,Danio_rerio.GRCz11.pep.all.fa,"Zebrafish Proteome, Ensembl 115 (GRCz11)",7955,prot,url,https://ftp.ensembl.org/pub/current_fasta/danio_rerio/pep/Danio_rerio.GRCz11.pep.all.fa.gz,true
+killifish,genome,Nothobranchius_furzeri.NfurGRZ-RIMD1.genome.fa,"Turquoise killifish Genome, NfurGRZ-RIMD1",105023,nucl,,,true
+killifish,cdna,Nothobranchius_furzeri.NfurGRZ-RIMD1.cdna.all.fa,"Turquoise killifish cDNA, RefSeq RS_2024_12 (NfurGRZ-RIMD1)",105023,nucl,,,true
+killifish,protein,Nothobranchius_furzeri.NfurGRZ-RIMD1.protein.fa,"Turquoise killifish Proteome, RefSeq RS_2024_12 (NfurGRZ-RIMD1)",105023,prot,,,true

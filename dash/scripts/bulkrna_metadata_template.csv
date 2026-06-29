@@ -1,0 +1,28 @@
+# Bulk RNA Metadata Template
+#
+# This CSV file describes the RNA-seq samples to be converted to Dash format.
+# Each row represents one sample with a corresponding *_gene_abundance.tab file.
+#
+# Required columns:
+# - sample_id: Sample identifier that matches the *_gene_abundance.tab filename prefix
+# - source: Data source (typically "YYYY Journal" or "YYYY Journal (Author)")
+# - sample_name: Display name for the sample
+# - description: (Optional) Detailed description of the sample
+#
+# Naming conventions:
+# - source: "YYYY Journal" format, e.g., "2024 Nature", "2020 Cell (Miller)"
+# - sample_name: Brief descriptive name, e.g., "24 hpf", "adult heart", "liver ctrl"
+# - sample_id: Must exactly match the filename prefix (case-sensitive)
+#
+# Example: If you have "embryo_24hpf_gene_abundance.tab", sample_id should be "embryo_24hpf"
+
+sample_id,source,sample_name,description
+embryo_006hpf,2024 DevBiol,06 hpf,Embryo at 6 hours post fertilization
+embryo_012hpf,2024 DevBiol,12 hpf,Embryo at 12 hours post fertilization
+embryo_024hpf,2024 DevBiol,24 hpf,Embryo at 24 hours post fertilization
+embryo_048hpf,2024 DevBiol,48 hpf,Embryo at 48 hours post fertilization
+embryo_072hpf,2024 DevBiol,72 hpf,Embryo at 72 hours post fertilization
+adult_heart_ctrl,2024 Cell,heart ctrl,Adult heart control
+adult_heart_treated,2024 Cell,heart treated,Adult heart drug-treated
+adult_brain,2024 Cell,brain,Adult brain tissue
+adult_liver,2024 Cell,liver,Adult liver tissue

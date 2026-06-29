@@ -1,0 +1,50 @@
+baseURL = "https://example.org/miniodp/"  # Override per deployment with Hugo --baseURL or an untracked local config file.
+languageCode = "en-US"
+title = "mini Omics Data Portal"
+
+[params]
+  description = "A simple and efficient multi-species multi-omics data portal"
+  author = "Tu Lab"
+  author_url = "https://tulab.genetics.ac.cn/"
+  citation_text = "Please cite our portal as: \"Mini Omics Data Portal. Tu Lab, Institute of Genetics and Developmental Biology, Chinese Academy of Sciences. Available at: https://tulab.genetics.ac.cn/miniodp/\""
+  contact_name = "Tu Lab"
+  contact_url = "https://tulab.genetics.ac.cn/"
+  contact_affiliation_line1 = "Institute of Genetics and Developmental Biology"
+  contact_affiliation_line2 = "Chinese Academy of Sciences"
+  
+  # Theme configuration - Change this to switch themes
+  # Available themes: classic-blue, emerald-science, royal-purple, warm-orange, cool-gray, elegant-blue
+  theme = "classic-blue"
+  
+  # Dash application configuration (environment override only needs to modify url_prefix/host/port)
+  [params.dash_config]
+    url_prefix = "miniodp/dash"
+    host = "127.0.0.1"
+    port = 3939
+    debug = false
+    data_path = "data"
+
+  # JBrowse config example (environment overrides base_path)
+  [params.jbrowse]
+    base_path = "/miniodp/jbrowse2/"
+
+  # SequenceServer reverse proxy and listening port config
+  [params.sequenceserver]
+    base_path = "/miniodp/sequenceserver/"
+    host = "127.0.0.1"
+    port = 4567
+
+[menu]
+  [[menu.main]]
+    name = "Help"
+    url = "/help/"
+    weight = 1
+  [[menu.main]]
+    name = "Tu Lab"
+    url = "https://tulab.genetics.ac.cn/"
+    weight = 2
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

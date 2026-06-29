@@ -1,0 +1,476 @@
+{{ define "main" }}
+{{ $speciesKey := .File.BaseFileName }}
+{{ $species := index .Site.Data.species_display $speciesKey }}
+{{ $bulkBases := or $species.bulk_bases $species.reads }}
+{{ $imageSrc := printf "images/%s" $species.image | relURL }}
+{{ if or (hasPrefix $species.image "http://") (hasPrefix $species.image "https://") }}
+    {{ $imageSrc = $species.image }}
+{{ end }}
+
+<!-- Species Header -->
+<section class="species-header species-with-bg py-3">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <div class="d-flex align-items-center mb-2">
+                    <img src="{{ $imageSrc }}" alt="{{ $species.name }}" class="species-header-img me-3">
+                    <div>
+                        <h1 class="h3 fw-bold mb-1">{{ $species.name }}</h1>
+                        <p class="mb-0 small"><em>{{ $species.scientific_name }}</em></p>
+                    </div>
+                </div>
+                <p class="mb-0 small">{{ $species.description }}</p>
+            </div>
+            <div class="col-lg-4 text-center">
+                <div class="species-stats-header bg-white bg-opacity-10 rounded-3 p-2">
+                    <h3 class="small mb-2 fw-bold">Dataset Statistics</h3>
+                    <div class="row text-center">
+                        <div class="col-6 mb-1">
+                            <div class="stat-item">
+                                <div class="stat-number h6 fw-bold">{{ partial "format-stat.html" (dict "value" $species.bulk_datasets "kind" "datasets") }}</div>
+                                <div class="stat-label" style="font-size: 0.7rem;">Bulk runs</div>
+                            </div>
+                        </div>
+                        <div class="col-6 mb-1">
+                            <div class="stat-item">
+                                <div class="stat-number h6 fw-bold">{{ partial "format-stat.html" (dict "value" $bulkBases "kind" "quantity") }}</div>
+                                <div class="stat-label" style="font-size: 0.7rem;">Bulk bases</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="stat-item">
+                                <div class="stat-number h6 fw-bold">{{ partial "format-stat.html" (dict "value" $species.single_cell_datasets "kind" "datasets") }}</div>
+                                <div class="stat-label" style="font-size: 0.7rem;">SC sample groups</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="stat-item">
+                                <div class="stat-number h6 fw-bold">{{ partial "format-stat.html" (dict "value" $species.cells "kind" "quantity") }}</div>
+                                <div class="stat-label" style="font-size: 0.7rem;">Cells</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Navigation Tabs -->
+<section class="species-nav-section py-4">
+    <div class="container">
+        <div class="species-nav">
+            <ul class="nav nav-pills nav-fill" id="speciesTools" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="info-tab" data-bs-toggle="pill" data-bs-target="#info" type="button" role="tab" aria-controls="info" aria-selected="true">
+                        <i class="bi bi-info-circle me-2"></i>
+                        <span class="fw-bold">Species Info</span>
+                        <small class="d-block text-muted">About</small>
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="jbrowse-tab" data-bs-toggle="pill" data-bs-target="#jbrowse" type="button" role="tab" aria-controls="jbrowse" aria-selected="false">
+                        <i class="bi bi-bar-chart-steps me-2"></i>
+                        <span class="fw-bold">Genome Browser</span>
+                        <small class="d-block text-muted">JBrowse 2</small>
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="dashboard-tab" data-bs-toggle="pill" data-bs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="false">
+                        <i class="bi bi-graph-up me-2"></i>
+                        <span class="fw-bold">Gene Browser</span>
+                        <small class="d-block text-muted">Dash</small>
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="blast-tab" data-bs-toggle="pill" data-bs-target="#blast" type="button" role="tab" aria-controls="blast" aria-selected="false">
+                        <i class="bi bi-search me-2"></i>
+                        <span class="fw-bold">BLAST Search</span>
+                        <small class="d-block text-muted">SequenceServer</small>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Tool Content -->
+<section class="species-tools-section pb-5">
+    <div class="container">
+        <div class="tab-content" id="speciesToolsContent">
+            <!-- Species Info Tab -->
+            <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info-tab">
+                <div class="tool-card">
+                    <div class="row">
+                        <div class="col-lg-10 mx-auto">
+                            <div class="species-content">
+                                {{ if .Content }}
+                                    {{ .Content }}
+                                {{ else }}
+                                    <h3 class="fw-bold mb-4">About {{ $species.name }}</h3>
+                                    <h5 class="fw-bold mb-3">Basic Information</h5>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2"><strong>Common Name:</strong> {{ $species.name }}</li>
+                                        <li class="mb-2"><strong>Scientific Name:</strong> <em>{{ $species.scientific_name }}</em></li>
+                                        <li class="mb-2"><strong>Description:</strong> {{ $species.description }}</li>
+                                    </ul>
+                                {{ end }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JBrowse Tab -->
+            <div class="tab-pane fade" id="jbrowse" role="tabpanel" aria-labelledby="jbrowse-tab">
+                <div class="tool-card">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div>
+                            <h3 class="fw-bold mb-1">Genome Browser</h3>
+                            <p class="text-muted mb-0">Interactive genomic data visualization and exploration using <strong>JBrowse 2</strong></p>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-outline-primary btn-sm" onclick="refreshIframe('jbrowse-iframe')">
+                                <i class="bi bi-arrow-clockwise"></i> Refresh
+                            </button>
+                            <a href="{{ $species.jbrowse_url }}" target="_blank" class="btn btn-outline-primary btn-sm">
+                                <i class="bi bi-box-arrow-up-right"></i> Open in New Tab
+                            </a>
+                        </div>
+                    </div>
+                    <div class="iframe-container">
+                        <div class="iframe-loading-state" id="jbrowse-loading" aria-live="polite">
+                            <div class="text-center py-5">
+                                <div class="spinner-border text-primary mb-3" role="status" aria-label="Loading JBrowse">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <h4>Loading JBrowse 2...</h4>
+                                <p class="text-muted">Please wait while we load the genome browser</p>
+                            </div>
+                        </div>
+                        <iframe id="jbrowse-iframe" data-src="{{ $species.jbrowse_url }}"
+                                title="JBrowse 2 genome browser for {{ $species.name }}"
+                                aria-label="Interactive genome browser showing {{ $species.name }} genomic data"
+                                style="display: none;">
+                        </iframe>
+                        <div class="iframe-error-state" id="jbrowse-error" style="display: none;" aria-live="assertive">
+                            <div class="text-center py-5">
+                                <i class="bi bi-exclamation-triangle text-warning" style="font-size: 3rem;" aria-hidden="true"></i>
+                                <h4 class="mt-3">Unable to load JBrowse</h4>
+                                <p class="text-muted">The JBrowse service is not available. Please check the server configuration.</p>
+                                <button class="btn btn-outline-primary me-2" onclick="retryIframe('jbrowse-iframe')">
+                                    <i class="bi bi-arrow-clockwise me-1" aria-hidden="true"></i>Retry
+                                </button>
+                                <a href="{{ $species.jbrowse_url }}" target="_blank" class="btn btn-primary">
+                                    <i class="bi bi-box-arrow-up-right me-1" aria-hidden="true"></i>Direct Access
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Tab -->
+            <div class="tab-pane fade" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+                <div class="tool-card">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div>
+                            <h3 class="fw-bold mb-1">Gene Browser</h3>
+                            <p class="text-muted mb-0">Interactive gene expression analysis and multi-omics data exploration using <strong>Dash</strong></p>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-outline-success btn-sm" onclick="refreshIframe('dashboard-iframe')">
+                                <i class="bi bi-arrow-clockwise"></i> Refresh
+                            </button>
+                            <a href="{{ $species.dash_url }}" target="_blank" class="btn btn-outline-success btn-sm">
+                                <i class="bi bi-box-arrow-up-right"></i> Open in New Tab
+                            </a>
+                        </div>
+                    </div>
+                    <div class="iframe-container">
+                        <iframe id="dashboard-iframe" data-src="{{ $species.dash_url }}" title="Data Dashboard for {{ $species.name }}">
+                            <div class="iframe-fallback">
+                                <div class="text-center py-5">
+                                    <i class="bi bi-exclamation-triangle text-warning" style="font-size: 3rem;"></i>
+                                    <h4 class="mt-3">Unable to load Dashboard</h4>
+                                    <p class="text-muted">The Dash service is not available. Please check the server configuration.</p>
+                                    <a href="{{ $species.dash_url }}" target="_blank" class="btn btn-success">
+                                        Try Direct Access
+                                    </a>
+                                </div>
+                            </div>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BLAST Tab -->
+            <div class="tab-pane fade" id="blast" role="tabpanel" aria-labelledby="blast-tab">
+                <div class="tool-card">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div>
+                            <h3 class="fw-bold mb-1">BLAST Search</h3>
+                            <p class="text-muted mb-0">Find similar sequences in the {{ $species.name }} database using <strong>SequenceServer</strong></p>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-outline-info btn-sm" onclick="refreshIframe('blast-iframe')">
+                                <i class="bi bi-arrow-clockwise"></i> Refresh
+                            </button>
+                            <a href="{{ $species.blast_url }}" target="_blank" class="btn btn-outline-info btn-sm">
+                                <i class="bi bi-box-arrow-up-right"></i> Open in New Tab
+                            </a>
+                        </div>
+                    </div>
+                    <div class="iframe-container">
+                        <iframe id="blast-iframe" data-src="{{ $species.blast_url }}" title="BLAST Search for {{ $species.name }}">
+                            <div class="iframe-fallback">
+                                <div class="text-center py-5">
+                                    <i class="bi bi-exclamation-triangle text-warning" style="font-size: 3rem;"></i>
+                                    <h4 class="mt-3">Unable to load BLAST</h4>
+                                    <p class="text-muted">The BLAST service is not available. Please check the server configuration.</p>
+                                    <a href="{{ $species.blast_url }}" target="_blank" class="btn btn-info">
+                                        Try Direct Access
+                                    </a>
+                                </div>
+                            </div>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{{ end }}
+
+{{ define "head" }}
+<style>
+.species-header-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.species-with-bg {
+    background-image: url('{{ "images/genomics-bg.png" | relURL }}?v={{ now.Unix }}');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: local;
+    position: relative;
+}
+
+.species-with-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-overlay);
+    z-index: 1;
+}
+
+.species-with-bg .container {
+    position: relative;
+    z-index: 2;
+}
+
+.species-stats-header {
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-pills .nav-link {
+    border-radius: 15px;
+    margin: 0 0.5rem;
+    padding: 1rem 1.5rem;
+    transition: all 0.3s ease;
+    background: rgba(37, 99, 235, 0.3);
+    border: 1px solid transparent;
+}
+
+.nav-pills .nav-link:hover {
+    background: rgba(37, 99, 235, 0.5);
+    border-color: rgba(37, 99, 235, 0.3);
+}
+
+.nav-pills .nav-link.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.iframe-container {
+    position: relative;
+    min-height: 600px;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.iframe-fallback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .species-header-img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .nav-pills .nav-link {
+        margin: 0.25rem;
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+.species-content h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid rgba(37, 99, 235, 0.1);
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.species-content h3 {
+    color: #495057;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.species-content h4 {
+    color: #6c757d;
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.species-content table {
+    margin: 1rem 0;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.species-content table th {
+    background-color: rgba(37, 99, 235, 0.1);
+    border-color: rgba(37, 99, 235, 0.2);
+    padding: 0.75rem;
+    font-weight: 600;
+}
+
+.species-content table td {
+    padding: 0.75rem;
+    border-top: 1px solid #dee2e6;
+    vertical-align: top;
+}
+
+.species-content table tbody tr:nth-child(even) {
+    background-color: rgba(248, 249, 250, 0.8);
+}
+
+.species-content table tbody tr:hover {
+    background-color: rgba(37, 99, 235, 0.05);
+    transition: background-color 0.2s ease;
+}
+
+.species-content ul li {
+    margin-bottom: 0.5rem;
+}
+
+.species-content strong {
+    color: #495057;
+}
+
+.pmid-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.pmid-link:hover {
+    color: #0056b3;
+    text-decoration: none;
+    border-bottom-color: #007bff;
+}
+
+.pmid-link:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+</style>
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+function refreshIframe(iframeId) {
+    const iframe = document.getElementById(iframeId);
+    if (iframe) {
+        iframe.src = iframe.src;
+    }
+}
+
+// Function to automatically add PubMed links to PMID column
+function addPMIDLinks() {
+    const speciesContent = document.querySelector('.species-content');
+    if (!speciesContent) return;
+    
+    // Find all tables in species content
+    const tables = speciesContent.querySelectorAll('table');
+    
+    tables.forEach(table => {
+        const tbody = table.querySelector('tbody');
+        if (!tbody) return;
+        
+        // Check if first column header contains "PMID"
+        const headerRow = table.querySelector('thead tr');
+        if (!headerRow) return;
+        
+        const firstHeader = headerRow.querySelector('th');
+        if (!firstHeader || !firstHeader.textContent.toLowerCase().includes('pmid')) return;
+        
+        // Process each row in tbody
+        const rows = tbody.querySelectorAll('tr');
+        rows.forEach(row => {
+            const firstCell = row.querySelector('td');
+            if (!firstCell) return;
+            
+            const pmidText = firstCell.textContent.trim();
+            
+            // Check if it's a valid PMID (numbers only, 7-8 digits typically)
+            if (/^\d{7,8}$/.test(pmidText)) {
+                // Create PubMed link
+                const pmidLink = document.createElement('a');
+                pmidLink.href = `https://pubmed.ncbi.nlm.nih.gov/${pmidText}/`;
+                pmidLink.target = '_blank';
+                pmidLink.rel = 'noopener noreferrer';
+                pmidLink.textContent = pmidText;
+                pmidLink.className = 'pmid-link';
+                
+                // Replace cell content with link
+                firstCell.innerHTML = '';
+                firstCell.appendChild(pmidLink);
+            }
+        });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.querySelector('#info.active, #info.show')) {
+        setTimeout(addPMIDLinks, 100);
+    }
+});
+</script>
+{{ end }}

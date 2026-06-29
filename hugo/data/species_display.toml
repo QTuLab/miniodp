@@ -1,0 +1,109 @@
+# Multi-Species Genomic Data Portal Configuration
+# All dash_url entries point to the unified dashboard served via Nginx:
+# use relative paths like /miniodp/dash/{species_key} for environment portability.
+
+[zebrafish]
+name = "Zebrafish"
+scientific_name = "Danio rerio"
+image = "zebrafish.jpg"
+description = "A popular vertebrate model organism for studying development, genetics, regeneration, and human diseases."
+jbrowse_url = "/miniodp/jbrowse2/?assembly=Danio_rerio&loc=14:26709229..26719269&tracks=Dr_Ensembl100.gff3,RNA_Embryo_24hpf_2022BMCG.bam,ATAC_Embryo_24hpf_2015PNAS.final.bam,ChIP_Embryo_24hpf_H3K27ac_2012GR.bam,DNAme_Embryo_24hpf_2015GD.bam"
+dash_url = "/miniodp/dash/zebrafish"
+blast_url = "/miniodp/sequenceserver/"
+order = 1
+bulk_datasets = 1418
+reads = 47636696799
+single_cell_datasets = 120
+cells = 3157788
+bulk_bases = 8305390998845
+
+[medaka]
+name = "Medaka"
+scientific_name = "Oryzias latipes"
+image = "medaka.jpg"
+description = "A small freshwater fish, widely used as a model organism in developmental biology and genetics research."
+jbrowse_url = "/miniodp/jbrowse2/?assembly=Oryzias_latipes&loc=2:14224044..14231473&tracks=Ol_Ensembl94.gff3,IGDB_2020GR.gff3,RNA_Embryo_Combined_2020GR.bam,ATAC_Embryo_Combined_2020GR.final,ATAC_Embryo_Combined_Peaks_2020GR"
+dash_url = "/miniodp/dash/medaka"
+blast_url = "/miniodp/sequenceserver/"
+order = 2
+bulk_datasets = 450
+reads = 16392274534
+bulk_bases = 2819735515044
+single_cell_datasets = 4
+cells = 62659
+
+[killifish]
+name = "Turquoise killifish"
+scientific_name = "Nothobranchius furzeri"
+image = "killifish.png"
+description = "A short-lived annual killifish widely used to study vertebrate aging, diapause, tissue homeostasis, and life-history evolution."
+jbrowse_url = "/miniodp/jbrowse2/?assembly=Nothobranchius_furzeri&loc=NC_091749.1:26585592..26598806&tracks=Nf_RefSeq.gff3,RNA_Tissue_EmbryoDiapause_day6_2020_Science_Brunet,ATAC_Tissue_EmbryoDiapause_day6_2024_Cell_Brunet_ATAC,ChIP_Tissue_EmbryoDiapause_h3k27me3_2020_Science_Brunet_ChIP"
+dash_url = "/miniodp/dash/killifish"
+blast_url = "/miniodp/sequenceserver/"
+order = 3
+# bulk_datasets and reads follow the current public killifish run/spots summary.
+bulk_datasets = 1348
+reads = 40031443203
+bulk_bases = 7413699641375
+single_cell_datasets = 31
+cells = 386393
+
+[mexican_tetra]
+name = "Mexican Tetra"
+scientific_name = "Astyanax mexicanus"
+image = "astyanax.jpg"
+description = "A freshwater fish with both surface and cave-dwelling populations, used to study evolution and adaptation."
+jbrowse_url = "/miniodp/jbrowse2/?assembly=Astyanax_mexicanus&loc=2:6378023..6399742&tracks=Am_Ensembl.gff3,RNA_Tissue_Liver_Surface_2022NG.bam,ATAC_Tissue_Liver_Surface_2022NG.final.bam,ChIP_Tissue_Liver_Surface_H3K27ac_2022NG.final.bam"
+dash_url = "/miniodp/dash/mexican_tetra"
+blast_url = "/miniodp/sequenceserver/"
+order = 4
+bulk_datasets = 49
+reads = 1355653194
+bulk_bases = 100580674909
+single_cell_datasets = 0
+cells = 0
+
+[hydra]
+name = "Hydra"
+scientific_name = "Hydra vulgaris"
+image = "hydra.jpg"
+description = "A small cnidarian known for its remarkable regenerative abilities and immortal characteristics."
+jbrowse_url = "/miniodp/jbrowse2/?assembly=Hydra_vulgaris&loc=CM039212.1:33437956..33530249&tracks=Hv_Ensembl.gff3,RNA_Tissue_Head_Reg6hr_2021GBE.bam,ATAC_Tissue_Head_Reg6hr_2021GBE.final.bam,ChIP_Tissue_Head_Reg6hr_H3K27ac_2021GBE.final.bam"
+dash_url = "/miniodp/dash/hydra"
+blast_url = "/miniodp/sequenceserver/"
+order = 5
+bulk_datasets = 101
+reads = 3032813725
+bulk_bases = 257147250452
+single_cell_datasets = 0
+cells = 0
+
+[lancelet]
+name = "Lancelet"
+scientific_name = "Branchiostoma lanceolatum"
+image = "branchiostoma.jpg"
+description = "A primitive chordate that provides insights into vertebrate evolution and development."
+jbrowse_url = "/miniodp/jbrowse2/?assembly=Branchiostoma_lanceolatum&loc=Sc0000004:3768833..3777852&tracks=Bl_Ensembl.gff3,RNA_Embryo_15h_2018Nat.bam,ATAC_Embryo_15h_2018Nat.final.bam,ChIP_Embryo_15h_H3K27ac_2018Nat.final.bam"
+dash_url = "/miniodp/dash/lancelet"
+blast_url = "/miniodp/sequenceserver/"
+order = 6
+bulk_datasets = 80
+reads = 5471563949
+bulk_bases = 996950444617
+single_cell_datasets = 0
+cells = 0
+
+[cattle]
+name = "Cattle"
+scientific_name = "Bos taurus"
+image = "bos.jpg"
+description = "A large domesticated mammal, important for agricultural research and comparative genomics."
+jbrowse_url = "/miniodp/jbrowse2/?assembly=Bos_taurus&loc=3:28552504..28569540&tracks=Bt_Ensembl.gff3,RNA_Tissue_SkeletalMuscle_2021NC.bam,ATAC_Tissue_SkeletalMuscle_2021NC.final.bam,ChIP_Tissue_SkeletalMuscle_H3K27ac_2021NC.final.bam"
+dash_url = "/miniodp/dash/cattle"
+blast_url = "/miniodp/sequenceserver/"
+order = 7
+bulk_datasets = 122
+reads = 10559657586
+single_cell_datasets = 0
+cells = 0
+bulk_bases = 1071606480115

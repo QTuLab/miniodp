@@ -1,0 +1,30 @@
+{{- $value := .value -}}
+{{- if lt $value 10000 -}}
+  {{- printf "%d" $value -}}
+{{- else -}}
+  {{- $floatValue := float $value -}}
+  {{- $scaled := 0.0 -}}
+  {{- $suffix := "" -}}
+  {{- if lt $value 1000000 -}}
+    {{- $scaled = div $floatValue (float 1000) -}}
+    {{- $suffix = "K" -}}
+  {{- else if lt $value 1000000000 -}}
+    {{- $scaled = div $floatValue (float 1000000) -}}
+    {{- $suffix = "M" -}}
+  {{- else if lt $value 1000000000000 -}}
+    {{- $scaled = div $floatValue (float 1000000000) -}}
+    {{- $suffix = "B" -}}
+  {{- else -}}
+    {{- $scaled = div $floatValue (float 1000000000000) -}}
+    {{- $suffix = "T" -}}
+  {{- end -}}
+  {{- $roundedOne := div (math.Round (mul $scaled 10)) 10 -}}
+  {{- if and (eq $suffix "T") (lt $roundedOne 100) -}}
+    {{- printf "%.1f %s" $roundedOne $suffix -}}
+  {{- else if lt $roundedOne 10 -}}
+    {{- printf "%.1f %s" $roundedOne $suffix -}}
+  {{- else -}}
+    {{- $roundedInt := math.Round $scaled -}}
+    {{- printf "%.0f %s" $roundedInt $suffix -}}
+  {{- end -}}
+{{- end -}}

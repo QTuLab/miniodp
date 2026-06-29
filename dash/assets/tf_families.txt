@@ -1,0 +1,87 @@
+# Transcription Factor Families
+
+*Data source: [AnimalTFDB4](https://guolab.wchscu.cn/AnimalTFDB4/) - organized by structural groups*
+
+### Basic Domains Group
+- **AP-2** - Activator Protein 2
+- **bHLH** - basic Helix-Loop-Helix  
+- **Nrf1** - Nuclear respiratory factor 1
+- **RFX** - Regulatory Factor X
+- **TF_bZIP** - basic Leucine Zipper
+- **TSC22** - TSC22 domain family
+
+### Beta-Scaffold Factors
+- **CBF** - CCAAT-binding factor
+- **CP2** - TFCP2 transcription factor
+- **CSD** - Cold shock domain
+- **CSL** - CBF1/Su(H)/Lag-1
+- **GCM** - Glial cells missing
+- **P53** - Tumor protein p53
+- **RHD** - Rel homology domain
+- **Runt** - Runt domain
+- **STAT** - Signal transducer and activator
+
+### Helix-Turn-Helix
+- **ARID** - AT-rich interaction domain
+- **COE** - Collier/Olf/EBF
+- **CUT** - Cut homeodomain
+- **E2F** - E2F transcription factor
+- **ETS** - E26 transformation-specific
+- **Fork_head** - Forkhead box
+- **Homeobox** - Homeodomain proteins
+- **HPD** - Helix-turn-helix domain
+- **HSF** - Heat shock factor
+- **HTH** - Helix-turn-helix
+- **IRF** - Interferon regulatory factor
+- **MYB** - MYB proto-oncogene
+- **PAX** - Paired box
+- **Pou** - POU domain class
+- **SRF** - Serum response factor
+- **TEA** - TEA domain family
+- **TF_Otx** - Orthodenticle homeobox
+
+### Other Alpha-Helix Group
+- **GTF2I** - General transcription factor
+- **HMG** - High mobility group
+- **NF-YA** - Nuclear transcription factor Y alpha
+- **NF-YB** - Nuclear transcription factor Y beta
+- **NF-YC** - Nuclear transcription factor Y gamma
+- **SAND** - SAND domain
+
+### Unclassified Structure
+- **AF-4** - ALL1-fused gene from chromosome 4
+- **CG-1** - CG-1 domain
+- **CSRNP_N** - Cysteine/serine-rich nuclear protein
+- **CTF/NFI** - CCAAT-binding transcription factor
+- **DACH** - Dachshund homolog
+- **GCFC** - GC-rich sequence DNA-binding factor
+- **HMGA** - High mobility group AT-hook
+- **LRRFIP** - LRR binding FLII interacting protein
+- **MBD** - Methyl-CpG-binding domain
+- **MH1** - Mad homology 1
+- **NCU-G1** - Nuclear protein NCU-G1
+- **NDT80/PhoG** - Meiosis-specific transcription factor
+- **Others** - Miscellaneous factors
+- **PC4** - Positive cofactor 4
+- **T-box** - T-box transcription factor
+- **Tub** - Tubby protein
+
+### Zinc-Coordinating Group
+- **DM** - Doublesex and mab-3 domain
+- **ESR-like** - Estrogen receptor-like
+- **GCNF-like** - Germ cell nuclear factor-like
+- **Miscellaneous** - Various zinc-binding factors
+- **NGFIB-like** - Nerve growth factor IB-like
+- **RXR-like** - Retinoid X receptor-like
+- **SF-like** - Steroidogenic factor-like
+- **THAP** - THAP domain
+- **THR-like** - Thyroid hormone receptor-like
+- **ZBTB** - Zinc finger and BTB domain
+- **zf-BED** - BED zinc finger
+- **zf-C2H2** - C2H2 zinc finger
+- **zf-C2HC** - C2HC zinc finger
+- **zf-CCCH** - CCCH zinc finger
+- **zf-GATA** - GATA zinc finger
+- **zf-LITAF-like** - LITAF-like zinc finger
+- **zf-MIZ** - MIZ zinc finger
+- **zf-NF-X1** - NF-X1 zinc finger

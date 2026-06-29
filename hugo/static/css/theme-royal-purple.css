@@ -1,0 +1,49 @@
+/* Royal Purple Theme - Research and Innovation */
+:root {
+    /* Primary Colors */
+    --primary-color: #7c3aed;
+    --primary-dark: #6d28d9;
+    --primary-light: #8b5cf6;
+    --primary-50: rgba(124, 58, 237, 0.05);
+    --primary-100: rgba(124, 58, 237, 0.1);
+    --primary-200: rgba(124, 58, 237, 0.2);
+    --primary-300: rgba(124, 58, 237, 0.3);
+    --primary-500: rgba(124, 58, 237, 0.5);
+    --primary-750: rgba(124, 58, 237, 0.75);
+    
+    /* Secondary Colors */
+    --secondary-color: #6b7280;
+    --secondary-dark: #4b5563;
+    --secondary-light: #9ca3af;
+    
+    /* Accent Colors */
+    --success-color: #10b981;
+    --info-color: #06b6d4;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+    
+    /* Background Colors */
+    --light-bg: #faf5ff;
+    --dark-bg: #1e1b37;
+    --card-bg: #ffffff;
+    
+    /* Text Colors */
+    --text-primary: #1e1b37;
+    --text-secondary: #6b7280;
+    --text-muted: #9ca3af;
+    --text-white: #ffffff;
+    
+    /* Border Colors */
+    --border-light: rgba(124, 58, 237, 0.05);
+    --border-medium: rgba(124, 58, 237, 0.1);
+    --border-strong: rgba(124, 58, 237, 0.2);
+    
+    /* Shadow Colors */
+    --shadow-sm: 0 4px 15px rgba(124, 58, 237, 0.1);
+    --shadow-md: 0 8px 30px rgba(124, 58, 237, 0.15);
+    --shadow-lg: 0 20px 40px rgba(124, 58, 237, 0.15);
+    
+    /* Gradient */
+    --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    --gradient-overlay: rgba(124, 58, 237, 0.75);
+}

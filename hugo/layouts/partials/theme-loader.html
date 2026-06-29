@@ -1,0 +1,22 @@
+{{/* Theme Loader Partial - Dynamically loads theme CSS based on config */}}
+{{- $theme := .Site.Params.theme | default "classic-blue" -}}
+{{- $availableThemes := slice "classic-blue" "emerald-science" "royal-purple" "warm-orange" "cool-gray" "elegant-blue" -}}
+
+{{/* Validate theme exists, fallback to classic-blue */}}
+{{- if not (in $availableThemes $theme) -}}
+    {{- $theme = "classic-blue" -}}
+{{- end -}}
+
+{{/* Load base CSS first */}}
+<link rel="stylesheet" href="{{ "css/base.css" | relURL }}">
+
+{{/* Load theme-specific CSS */}}
+<link rel="stylesheet" href="{{ printf "css/theme-%s.css" $theme | relURL }}">
+
+{{/* Load site-specific overrides */}}
+<link rel="stylesheet" href="{{ "css/custom.css" | relURL }}">
+
+{{/* Add theme class to body for additional styling */}}
+<script>
+document.documentElement.setAttribute('data-theme', '{{ $theme }}');
+</script>

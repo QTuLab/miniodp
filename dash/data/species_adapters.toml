@@ -1,0 +1,51 @@
+# Species Adapters Configuration for Zero Species-Specific Code
+# This file drives adapter selection and gene ID format detection
+
+[adapters]
+# Available adapter types
+standard = "StandardAdapter"
+dual_system = "MedakaAdapter"
+gene_id = "GeneIdAdapter"
+
+[default]
+# Default settings for all species (can be overridden per species)
+adapter_type = "standard"
+id_formats = ["ENS.*"]  # Default ENS pattern works for most species
+primary_key = "ENS"
+
+# Species-specific configurations
+# Only specify settings that differ from defaults
+
+[species.zebrafish]
+id_formats = ["ENSDARG.*"]  # Zebrafish-specific ENS prefix
+
+[species.medaka]
+adapter_type = "dual_system"
+id_formats = ["IGDB.*", "ENSORLG.*"]
+primary_key = "IGDB"
+secondary_key = "ENS"
+
+[species.human]
+id_formats = ["ENSG.*"]  # Human-specific ENS prefix
+
+[species.mouse]
+id_formats = ["ENSMUSG.*"]  # Mouse-specific ENS prefix
+
+[species.mexican_tetra]
+id_formats = ["ENSAMXG.*"]  # Astyanax mexicanus
+
+[species.lancelet]
+id_formats = ["ENSBLCG.*"]  # Branchiostoma lanceolatum
+
+[species.hydra]
+adapter_type = "gene_id"
+id_formats = ["^LOC[0-9]+$", "^GeneID_[0-9]+$"]
+primary_key = "ENS"
+
+[species.cattle]
+id_formats = ["ENSBTAG.*"]  # Same as bos (Bos taurus)
+
+[species.killifish]
+adapter_type = "gene_id"
+id_formats = ["^[0-9]+$"]
+primary_key = "ENS"

@@ -1,0 +1,22 @@
+services:
+  sequenceserver:
+    image: wurmlab/sequenceserver:latest
+    container_name: miniodp-sequenceserver
+    command:
+      - "sequenceserver"
+      - "-p"
+      - "4567"
+      - "-d"
+      - "/db"
+      - "-r"
+      - "/opt/sequenceserver/jbrowse_links.rb"
+    environment:
+      MINIODP_BASE_PATH: "${MINIODP_BASE_PATH:-/miniodp}"
+      MINIODP_BLAST_JBROWSE_LINKS: "/opt/sequenceserver/jbrowse_genome_links.csv"
+    ports:
+      - "127.0.0.1:4567:4567"
+    volumes:
+      - ./data:/db:ro
+      - ./scripts/jbrowse_links.rb:/opt/sequenceserver/jbrowse_links.rb:ro
+      - ./config/jbrowse_genome_links.csv:/opt/sequenceserver/jbrowse_genome_links.csv:ro
+    restart: unless-stopped

@@ -1,0 +1,195 @@
+/* Elegant Blue Theme - Harmonized with Tu Lab Website */
+:root {
+    /* Primary Colors - Brighter, more coordinated with Tu Lab */
+    --primary-color: #6b7db8;
+    --primary-dark: #4c5fa8;
+    --primary-light: #8a9bc8;
+    --primary-50: rgba(107, 125, 184, 0.05);
+    --primary-100: rgba(107, 125, 184, 0.1);
+    --primary-200: rgba(107, 125, 184, 0.2);
+    --primary-300: rgba(107, 125, 184, 0.3);
+    --primary-500: rgba(107, 125, 184, 0.5);
+    --primary-750: rgba(107, 125, 184, 0.75);
+    
+    /* Secondary Colors - Complementary purples */
+    --secondary-color: #8087b8;
+    --secondary-dark: #6b73a8;
+    --secondary-light: #9aa0c8;
+    
+    /* Accent Colors - Scientific palette */
+    --success-color: #5a8a6b;
+    --info-color: #4a7fb8;
+    --warning-color: #b5936a;
+    --danger-color: #a67c7c;
+    
+    /* Background Colors */
+    --light-bg: #f8f9fc;
+    --dark-bg: #4c5fa8;
+    --card-bg: #ffffff;
+    
+    /* Text Colors */
+    --text-primary: #2a3456;
+    --text-secondary: #6b73a8;
+    --text-muted: #8087b8;
+    --text-white: #ffffff;
+    
+    /* Border Colors */
+    --border-light: rgba(107, 125, 184, 0.08);
+    --border-medium: rgba(107, 125, 184, 0.15);
+    --border-strong: rgba(107, 125, 184, 0.25);
+    
+    /* Shadow Colors */
+    --shadow-sm: 0 4px 15px rgba(107, 125, 184, 0.1);
+    --shadow-md: 0 8px 30px rgba(107, 125, 184, 0.15);
+    --shadow-lg: 0 20px 40px rgba(107, 125, 184, 0.15);
+    
+    /* Navbar gradient - brighter blue */
+    --navbar-gradient: linear-gradient(135deg, #5c6bc0 0%, #4c5fa8 100%);
+    /* Hero overlay - brighter blue to lighten the dark background */
+    --hero-overlay: rgba(107, 125, 184, 0.8);
+}
+
+/* Enhanced academic styling */
+.navbar-dark.bg-primary {
+    background: var(--navbar-gradient) !important;
+    border-bottom: 1px solid var(--border-medium);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Hero section styling - lighter overlay to show background image */
+.hero-section {
+    position: relative;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--hero-overlay);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-section > .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Card enhancements */
+.species-card {
+    border: 1px solid var(--border-light) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.species-card:hover {
+    border-color: var(--border-medium) !important;
+    box-shadow: var(--shadow-md) !important;
+    transform: translateY(-4px);
+}
+
+/* Button styling */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    border: 1px solid var(--primary-dark);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, #3a4a85 100%);
+    border-color: #3a4a85;
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+}
+
+/* Academic color variants */
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Text colors for better hierarchy */
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.text-secondary {
+    color: var(--secondary-color) !important;
+}
+
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+/* Enhanced focus states for accessibility */
+*:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px var(--primary-100);
+}
+
+/* Search input styling */
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem var(--primary-200);
+}
+
+/* Statistics styling */
+.stat-number {
+    color: var(--text-white);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Professional footer */
+footer {
+    background: var(--dark-bg) !important;
+    border-top: 3px solid var(--primary-color);
+}
+
+/* Responsive refinements */
+@media (max-width: 768px) {
+    .hero-section {
+        background: linear-gradient(180deg, var(--primary-color) 0%, var(--primary-dark) 100%) !important;
+    }
+}
+
+/* Academic paper-like styling for help page */
+.help-section .card {
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+}
+
+.help-section .feature-icon {
+    background: var(--primary-50);
+    color: var(--primary-color);
+}
+
+/* Navigation active states */
+.nav-link.active,
+.nav-link:hover {
+    color: rgba(255,255,255,0.9) !important;
+    background-color: var(--primary-500) !important;
+}
+
+/* Species page enhancements */
+.species-header {
+    background: var(--navbar-gradient) !important;
+}
+
+.tool-card {
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+}
+
+.tool-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--border-medium);
+}
